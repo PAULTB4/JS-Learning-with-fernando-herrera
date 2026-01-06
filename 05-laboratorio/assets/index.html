@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎰 Blackjack Casino - 21</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.7/underscore-umd-min.js"></script>
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+    <!-- Efecto de fichas de casino flotantes en el fondo -->
+    <div class="casino-chips-bg">
+        <div class="chip chip-1"></div>
+        <div class="chip chip-2"></div>
+        <div class="chip chip-3"></div>
+        <div class="chip chip-4"></div>
+        <div class="chip chip-5"></div>
+    </div>
+
+    <!-- Header con diseño de casino -->
+    <header class="titulo">
+        <div class="casino-lights">
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+        </div>
+        <i class="fas fa-spade"></i>
+        <span class="casino-title">BLACKJACK</span>
+        <i class="fas fa-heart"></i>
+        <div class="casino-subtitle">🎰 CASINO ROYALE 🎰</div>
+    </header>
+
+    <!-- Panel de control con botones estilo casino -->
+    <div class="row mt-4">
+        <div id="divBut" class="col text-center">
+            <div class="button-container">
+                <button id="btnNew" class="btn btn-casino btn-new">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>NUEVO JUEGO</span>
+                </button>
+                <button id="btnGet" class="btn btn-casino btn-hit">
+                    <i class="fas fa-hand-point-up"></i>
+                    <span>PEDIR CARTA</span>
+                </button>
+                <button id="btnStop" class="btn btn-casino btn-stand">
+                    <i class="fas fa-hand-paper"></i>
+                    <span>PLANTARSE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Separador decorativo -->
+    <div class="divider">
+        <i class="fas fa-diamond"></i>
+        <i class="fas fa-club"></i>
+        <i class="fas fa-diamond"></i>
+    </div>
+
+    <!-- Sección del Jugador con diseño premium -->
+    <div class="row container-fluid mt-4 px-5">
+        <div class="col">
+            <div class="player-panel player-section">
+                <div class="panel-header">
+                    <i class="fas fa-user-circle player-icon"></i>
+                    <h1 class="player-title">
+                        JUGADOR
+                        <span class="score-badge">
+                            <i class="fas fa-coins"></i>
+                            <small id="player-score">0</small>
+                        </span>
+                    </h1>
+                </div>
+                <div id="jugador-cartas" class="cards-area">
+                    <!-- Las cartas se insertarán aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Separador VS -->
+    <div class="vs-divider">
+        <span class="vs-text">VS</span>
+    </div>
+
+    <!-- Sección de la Computadora con diseño premium -->
+    <div class="row container-fluid mt-4 px-5 mb-5">
+        <div class="col">
+            <div class="player-panel dealer-section">
+                <div class="panel-header">
+                    <i class="fas fa-robot dealer-icon"></i>
+                    <h1 class="player-title">
+                        CRUPIER
+                        <span class="score-badge dealer-badge">
+                            <i class="fas fa-coins"></i>
+                            <small id="dealer-score">0</small>
+                        </span>
+                    </h1>
+                </div>
+                <div id="computadora-cartas" class="cards-area">
+                    <!-- Las cartas se insertarán aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de resultado (se mostrará con JavaScript) -->
+    <div id="resultModal" class="result-modal">
+        <div class="result-content">
+            <div class="result-icon"></div>
+            <h2 class="result-title"></h2>
+            <p class="result-message"></p>
+        </div>
+    </div>
+
+    <!-- Footer decorativo -->
+    <footer class="casino-footer">
+        <div class="footer-icons">
+            <i class="fas fa-spade"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-diamond"></i>
+            <i class="fas fa-club"></i>
+        </div>
+        <p>Juega responsablemente | Casino Virtual 2026</p>
+    </footer>
+
+    <script src="./js/juego.js"></script>
+</body>
+
+</html>
