@@ -59,7 +59,7 @@ const turnOnPC = (MinPoints) => {
         // <!-- <img class="carta" src="./cartas/2C.png" alt=""> -->
 
         const imgCard = document.createElement("img");
-        imgCard.src = `./cartas/${cart}.png`;
+        imgCard.src = `./assets/cartas/${cart}.png`;
         imgCard.classList.add("carta");
 
         divCartasComputer.append(imgCard);
@@ -79,7 +79,7 @@ btnGet.addEventListener("click", function() {
     // <!-- <img class="carta" src="./cartas/2C.png" alt=""> -->
 
     const imgCard = document.createElement("img");
-    imgCard.src = `./cartas/${cart}.png`;
+    imgCard.src = `./assets/cartas/${cart}.png`;
     imgCard.classList.add("carta");
 
     if (pointsPlayer > 21) {
