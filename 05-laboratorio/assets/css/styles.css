@@ -804,29 +804,456 @@ body.victory {
     font-size: 14px;
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
+/* ============================================ */
+/* RESPONSIVIDAD MÓVIL - OPTIMIZADO */
+/* ============================================ */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 992px) {
     .casino-title {
-        font-size: 32px;
-        letter-spacing: 4px;
+        font-size: 38px;
+        letter-spacing: 5px;
     }
 
+    .casino-lights {
+        padding: 0 10%;
+    }
+
+    .btn-casino {
+        min-width: 180px;
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    #jugador-cartas .carta,
+    #computadora-cartas .carta,
+    .carta {
+        width: 120px;
+    }
+
+    #jugador-cartas .carta:not(:first-child),
+    #computadora-cartas .carta:not(:first-child) {
+        margin-left: -60px;
+    }
+
+    .player-title {
+        font-size: 28px;
+    }
+
+    .score-badge {
+        font-size: 24px;
+        padding: 8px 16px;
+    }
+}
+
+/* Modo Móvil - Pantallas pequeñas */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* Header móvil optimizado */
+    .titulo {
+        padding: 20px 10px;
+    }
+
+    .casino-title {
+        font-size: 28px;
+        letter-spacing: 3px;
+        display: block;
+        margin: 10px 0;
+    }
+
+    .titulo i {
+        font-size: 24px;
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .casino-subtitle {
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-top: 8px;
+    }
+
+    .casino-lights {
+        padding: 0 5%;
+    }
+
+    .light {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Botones móviles - Touch friendly */
     .button-container {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 12px;
+        padding: 15px 20px;
     }
 
     .btn-casino {
         width: 100%;
-        max-width: 300px;
+        min-width: unset;
+        padding: 16px 20px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        border-radius: 12px;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-casino i {
+        font-size: 18px;
+        margin-right: 8px;
+    }
+
+    /* Cartas móviles - Optimizadas */
+    #jugador-cartas .carta,
+    #computadora-cartas .carta,
+    .carta {
+        width: 80px;
+        left: 0;
+    }
+
+    #jugador-cartas .carta:not(:first-child),
+    #computadora-cartas .carta:not(:first-child) {
+        margin-left: -40px;
+    }
+
+    /* Efecto hover reducido en móvil */
+    #jugador-cartas .carta:hover,
+    #computadora-cartas .carta:hover {
+        transform: translateY(-15px) scale(1.05);
+        filter: drop-shadow(0 8px 15px rgba(255, 215, 0, 0.4));
+    }
+
+    #computadora-cartas,
+    #jugador-cartas {
+        height: 150px;
+        min-height: 150px;
+    }
+
+    /* Paneles de jugadores móvil */
+    .row.container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin-top: 20px !important;
+    }
+
+    .player-panel {
+        padding: 20px 15px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+
+    .panel-header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .player-icon,
+    .dealer-icon {
+        font-size: 36px;
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 
     .player-title {
-        font-size: 24px;
+        font-size: 20px;
+        letter-spacing: 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     .score-badge {
+        font-size: 18px;
+        padding: 8px 16px;
+        margin-left: 0;
+        min-width: 80px;
+    }
+
+    .cards-area {
+        min-height: 150px;
+        padding: 15px 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    /* Separadores móvil */
+    .divider {
+        margin: 15px 0;
         font-size: 20px;
-        padding: 8px 15px;
+    }
+
+    .divider i {
+        margin: 0 10px;
+    }
+
+    .vs-divider {
+        margin: 15px 0;
+    }
+
+    .vs-text {
+        font-size: 28px;
+        padding: 12px 30px;
+    }
+
+    /* Fichas de fondo - Reducidas en móvil */
+    .chip {
+        width: 35px;
+        height: 35px;
+        border: 3px solid #ffd700;
+    }
+
+    .chip::before {
+        font-size: 18px;
+    }
+
+    /* Footer móvil */
+    .casino-footer {
+        padding: 20px 10px;
+        margin-top: 30px;
+    }
+
+    .footer-icons {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer-icons i {
+        margin: 0 10px;
+    }
+
+    .casino-footer p {
+        font-size: 12px;
+    }
+
+    /* Modal móvil */
+    .result-content {
+        padding: 30px 20px;
+        max-width: 90%;
+        margin: 0 15px;
+    }
+
+    .result-icon {
+        font-size: 70px;
+    }
+
+    .result-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .result-message {
+        font-size: 18px;
+    }
+}
+
+/* Modo Móvil Pequeño - Smartphones */
+@media (max-width: 480px) {
+    /* Header ultra compacto */
+    .titulo {
+        padding: 15px 5px;
+    }
+
+    .casino-title {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .titulo i {
+        font-size: 20px;
+        margin: 0 5px;
+    }
+
+    .casino-subtitle {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    /* Botones compactos */
+    .button-container {
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .btn-casino {
+        padding: 14px 15px;
+        font-size: 13px;
+        min-height: 55px;
+    }
+
+    .btn-casino i {
+        font-size: 16px;
+        margin-right: 6px;
+    }
+
+    /* Cartas ultra pequeñas */
+    #jugador-cartas .carta,
+    #computadora-cartas .carta,
+    .carta {
+        width: 65px;
+    }
+
+    #jugador-cartas .carta:not(:first-child),
+    #computadora-cartas .carta:not(:first-child) {
+        margin-left: -35px;
+    }
+
+    #computadora-cartas,
+    #jugador-cartas {
+        height: 120px;
+        min-height: 120px;
+    }
+
+    /* Paneles compactos */
+    .player-panel {
+        padding: 15px 10px;
+    }
+
+    .player-icon,
+    .dealer-icon {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .player-title {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .score-badge {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .cards-area {
+        min-height: 120px;
+        padding: 10px 5px;
+    }
+
+    .vs-text {
+        font-size: 24px;
+        padding: 10px 25px;
+    }
+
+    /* Fichas ocultas en móvil pequeño para mejor rendimiento */
+    .chip {
+        display: none;
+    }
+
+    /* Modal compacto */
+    .result-content {
+        padding: 25px 15px;
+    }
+
+    .result-icon {
+        font-size: 60px;
+    }
+
+    .result-title {
+        font-size: 26px;
+    }
+
+    .result-message {
+        font-size: 16px;
+    }
+}
+
+/* Optimizaciones táctiles */
+@media (hover: none) and (pointer: coarse) {
+    /* Dispositivos táctiles */
+    .btn-casino:hover::before {
+        width: 0;
+        height: 0;
+    }
+
+    .btn-casino:active {
+        transform: scale(0.96);
+        transition: transform 0.1s;
+    }
+
+    #jugador-cartas .carta:hover,
+    #computadora-cartas .carta:hover {
+        transform: none;
+    }
+
+    .player-panel:hover {
+        transform: none;
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2),
+                    inset 0 0 50px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Modo landscape en móvil */
+@media (max-width: 768px) and (orientation: landscape) {
+    .titulo {
+        padding: 10px;
+    }
+
+    .casino-title {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    .casino-subtitle {
+        display: none;
+    }
+
+    .button-container {
+        flex-direction: row;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .btn-casino {
+        min-height: 50px;
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+
+    .btn-casino span {
+        display: none;
+    }
+
+    .btn-casino i {
+        margin-right: 0;
+        font-size: 20px;
+    }
+
+    #computadora-cartas,
+    #jugador-cartas {
+        height: 100px;
+        min-height: 100px;
+    }
+
+    .cards-area {
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .player-panel {
+        padding: 15px 10px;
+    }
+
+    .vs-divider {
+        margin: 10px 0;
+    }
+
+    .vs-text {
+        font-size: 20px;
+        padding: 8px 20px;
+    }
+
+    .casino-footer {
+        padding: 15px 10px;
+        margin-top: 20px;
     }
 }
