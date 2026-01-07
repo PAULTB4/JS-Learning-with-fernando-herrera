@@ -397,7 +397,8 @@ deck = createDeck();
 
 const requestCard = () => {
     if (deck.length === 0) {
-        throw "No hay cartas en el deck";
+        console.error("No hay cartas en el deck");
+        return null;
     }
     const cart = deck.pop();
     return cart;
@@ -405,10 +406,13 @@ const requestCard = () => {
 
 const getCardValue = (cartx) => {
     const value = cartx.substring(0, cartx.length - 1);
-    return isNaN(value) ? (value === "A" ? 11 : 0) : value * 1;
+    if (isNaN(value)) {
+        if (value === "A") return 11;
+        if (value === "J" || value === "Q" || value === "K") return 10;
+        return 0;
+    }
+    return parseInt(value, 10);
 };
-
-const value = getCardValue(requestCard());
 
 //eventos
 
@@ -418,6 +422,13 @@ const turnOnPC = (MinPoints) => {
 
     do {
         const cart = requestCard();
+
+        // Validar que haya una carta disponible
+        if (!cart) {
+            console.error("No quedan cartas en el deck");
+            break;
+        }
+
         pointsComputer = pointsComputer + getCardValue(cart);
 
         // Agregar sonido con delay para cada carta de la computadora
@@ -430,8 +441,9 @@ const turnOnPC = (MinPoints) => {
         // <!-- <img class="carta" src="./cartas/2C.png" alt=""> -->
 
         const imgCard = document.createElement("img");
-        imgCard.src = `./assets/cartas/${cart}.png`;
+        imgCard.src = `assets/cartas/${cart}.png`;
         imgCard.classList.add("carta");
+        imgCard.alt = cart;
 
         divCartasComputer.append(imgCard);
 
@@ -479,18 +491,31 @@ const determinarGanador = () => {
 };
 
 btnGet.addEventListener("click", function() {
+    const cart = requestCard();
+
+    // Validar que haya una carta disponible
+    if (!cart) {
+        console.error("No quedan cartas en el deck");
+        btnGet.disabled = true;
+        btnStop.disabled = true;
+        alert("No quedan más cartas en el mazo. Inicia un nuevo juego.");
+        return;
+    }
+
     // Sonido de carta siendo repartida
     audioManager.playCardDeal();
 
-    const cart = requestCard();
     pointsPlayer = pointsPlayer + getCardValue(cart);
     pointSmallerPlayer.innerText = pointsPlayer;
 
     // <!-- <img class="carta" src="./cartas/2C.png" alt=""> -->
 
     const imgCard = document.createElement("img");
-    imgCard.src = `./assets/cartas/${cart}.png`;
+    imgCard.src = `assets/cartas/${cart}.png`;
     imgCard.classList.add("carta");
+    imgCard.alt = cart;
+
+    divCartasJugador.append(imgCard);
 
     if (pointsPlayer > 21) {
         btnGet.disabled = true;
@@ -501,8 +526,6 @@ btnGet.addEventListener("click", function() {
         btnStop.disabled = true;
         turnOnPC(pointsPlayer);
     }
-
-    divCartasJugador.append(imgCard);
 });
 
 btnStop.addEventListener("click", function() {
