@@ -1,0 +1,21 @@
+# Configuración de headers para Cloudflare Pages
+
+/*
+  # Cache de assets estáticos
+  Cache-Control: public, max-age=31536000, immutable
+
+/index.html
+  # No cachear el HTML principal
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/cartas/*
+  # Cachear imágenes por 1 año
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  # Cachear CSS por 1 año
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  # Cachear JS por 1 año
+  Cache-Control: public, max-age=31536000, immutable
