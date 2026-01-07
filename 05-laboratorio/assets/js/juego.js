@@ -5,7 +5,8 @@ const specials = ["A", "J", "Q", "K"];
 let pointsPlayer = 0;
 let pointsComputer = 0;
 const btnGet = document.querySelector("#btnGet");
-const btnStop = document.querySelector("#btnStop")
+const btnStop = document.querySelector("#btnStop");
+const btnNew = document.querySelector("#btnNew");
 const pointsmall = document.querySelectorAll("small");
 const pointSmallerPlayer = pointsmall[0];
 const pointSmallerComputer = pointsmall[1];
@@ -97,5 +98,17 @@ btnStop.addEventListener("click", function() {
     btnStop.disabled = true;
 
     turnOnPC(pointsPlayer);
+
+});
+
+btnNew.addEventListener("click", function() {
+    divCartasComputer.innerHTML = "";
+    divCartasJugador.innerHTML = "";
+
+    btnGet.disabled = false;
+    btnStop.disabled = false;
+
+    pointSmallerComputer.innerText = 0;
+    pointSmallerPlayer.innerText = 0;
 
 })
